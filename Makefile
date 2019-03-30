@@ -6,7 +6,7 @@ all: test_stack check_brackets
 stack.o: stack.c stack.h
 	$(CC) $(CFLAGS) -c stack.c	
 	
-test_stack:  stack.o  
+test_stack: stack.o  
 	$(CC) $(CFLAGS) -o test_stack stack.o test_stack.c
 
 check_brackets: stack.o

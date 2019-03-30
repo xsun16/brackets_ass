@@ -5,11 +5,11 @@ int main()
 { 
     Stack* stack = createStack(100); 
 	
-	Braket b1 = {ROUND, 0}
+	Bracket b1 = {ROUND, 0};
     push(stack, b1);
-	Braket b2 = {SQUARE, 1}	
+	Bracket b2 = {SQUARE, 1};	
     push(stack, b2);
-	Braket b3 = {CURLY, 2}
+	Bracket b3 = {CURLY, 2};
     push(stack, b3); 
   
 	Bracket top = pop(stack);

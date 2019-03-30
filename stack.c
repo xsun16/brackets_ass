@@ -1,5 +1,5 @@
 // C-implementation of stack 
-#include <stack.h> 
+#include "stack.h" 
   
 // function to create a stack of given capacity. 
 Stack* createStack(unsigned capacity){
@@ -26,22 +26,15 @@ int isEmpty(Stack* stack){
 
 // Function to add an item to stack.  
 void push(Stack* stack, Bracket item){
-	//TODO
+	if (isFull(stack)) 
+        return; 
+    //TODO
 }
 
 // Function to remove an item from stack and return it. 
 Bracket pop(Stack* stack){
 	//TODO
-	Braket top;
+	Bracket top;
 	return top;
 }    
-  
-
-// Function to add an item to stack.  
-void push(struct Stack* stack, int item) 
-{ 
-    if (isFull(stack)) 
-        return; 
-    //TODO
-} 
   
