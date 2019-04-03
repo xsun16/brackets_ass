@@ -2,7 +2,7 @@
 #include "stack.h"
 
 int main() {
-    int max_line = 1024;
+    int max_line = 105000;
 	char input_buffer[max_line];
 	int input_len = 0;	
 	
@@ -11,7 +11,7 @@ int main() {
 
     input_len = strlen(input_buffer);
     printf("%d characters were read.\n",input_len);
-    printf("The input was: '%s'\n",input_buffer);
+    // printf("The input was: '%s'\n",input_buffer);
 	fflush(stdout);
     Stack * opening_brackets_stack = createStack(max_line); 
     for (int position = 0; position < input_len; ++position) {
@@ -27,6 +27,6 @@ int main() {
     }
 
     // Printing answer, write your code here
-
+	printf("My result is:\n");
     return 0;
 }
