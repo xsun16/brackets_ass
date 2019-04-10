@@ -14,19 +14,46 @@ int main() {
     // printf("The input was: '%s'\n",input_buffer);
 	fflush(stdout);
     Stack * opening_brackets_stack = createStack(max_line); 
+    int error_position = 0;
     for (int position = 0; position < input_len; ++position) {
         char next = input_buffer[position];
 
         if (next == '(' || next == '[' || next == '{') {
             // Process opening bracket, write your code here
-        }
+       	    Bracket bracket;
+            bracket.position = position;
+            switch (next){
+                case '(':
+                    bracket.type = ROUND;
+                    break;
+                case '[':
+                    bracket.type = SQUARE;
+                    break;
+                case '{':
+                    bracket.type = CURLY;
+                    break;
+            }
+            push(opening_brackets_stack, bracket);
+	}
 
         if (next == ')' || next == ']' || next == '}') {
             // Process closing bracket, write your code here
-        }
+            Bracket bracket = pop(opening_brackets_stack);
+            if(!((next == ')' && bracket.type == ROUND)
+                || (next == ']' && bracket.type == SQUARE)
+                || (next == '}' && bracket.type == CURLY))) {
+                error_position = position + 1;
+                break;
+	    }
+	}
     }
 
     // Printing answer, write your code here
-	printf("My result is:\n");
+	printf("My result is: Success\n");
+	if (error_position == 0) {
+        	printf("Success\n");
+    	}else {
+        	printf("%d\n", error_position);
+    	}
     return 0;
 }
